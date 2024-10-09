@@ -1,0 +1,65 @@
+<app-header [title]="todoList.name">
+  <div class="icons back" routerLink="/">&#9664;</div>
+  <div class="icons help">
+    ?
+    <div class="tooltip">
+      After adding an item you can easily mark the item as done by clicking the
+      text.<br /><br />
+      You can drag and drop items to rearrange the list.<br /><br />
+      Wrongly added item or don't need it anymore?<br />
+      Click the X on the right side and delete your item forever..<br /><br />
+      The green refresh button empties your current list completely.
+    </div>
+  </div>
+  <div class="icons empty" (click)="openConfirmDialog()">&#x21bb;</div>
+</app-header>
+<div class="content-container">
+  <div mat-form-field appearance="fill">
+    <input
+      matInput
+      #newItem
+      placeholder="add an item"
+      (keydown.enter)="addItem(newItem.value); newItem.value = ''"
+      class="todo-input"
+      id="addItemInput"
+      [attr.maxlength]="maxNewItemLength"
+    />
+    <div mat-hint align="end">
+      {{ newItem.value.length }} / {{ maxNewItemLength }}
+    </div>
+  </div>
+  <div cdkDropList class="list list-todo" (cdkDropListDropped)="drop($event)">
+    <div
+      *ngFor="let item of todoList.items; index as i; trackBy: trackByFn"
+      class="list-item"
+      [style]="{ 'border-left': '3px solid' + item.color }"
+      cdkDrag
+    >
+      <span
+        class="pointer"
+        (click)="onClickItem(item)"
+        [style]="{
+          'text-decoration-line': item.done ? 'line-through' : 'none',
+          'text-decoration-color': item.color
+        }"
+        >{{ item.text }}</span
+      >
+      <span
+        class="pointer float-right list-icon"
+        (click)="onDelItem(i)"
+        [style]="{ color: item.color }"
+        >&#9003;</span
+      >
+      <span
+        class="pointer float-right list-icon"
+        (click)="openDialog(item, i)"
+        [style]="{ color: item.color }"
+        >&#9998;</span
+      >
+    </div>
+  </div>
+</div>
+<app-footer>
+  <div>Items to do: {{ numberOfItemsToDo }}</div>
+  <div>Items done: {{ numberOfItemsDone }}</div>
+</app-footer>

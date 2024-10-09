@@ -1,0 +1,52 @@
+<app-header>
+  <div class="icons help">
+    ?
+    <div class="tooltip">
+      Navigate to one of your todo lists by clicking on its name below or create
+      a new one by clicking the Create todo list button.<br /><br />
+      In the overview of your todo lists you can see the amount of items that
+      are not done yet (light grey number). <br />
+      Also you can edit the name of the todo list or delete it.<br /><br />
+      Using the green 'refresh' button at the top, you can delete all of your
+      todo lists at once.<br /><br />
+      You can drag and drop lists to rearrange them.
+    </div>
+  </div>
+  <div class="icons empty" (click)="openConfirmDialog()">&#x21bb;</div>
+</app-header>
+<div class="content-container">
+  <div cdkDropList class="list list-index" (cdkDropListDropped)="drop($event)">
+    <div
+      *ngFor="let list of todoLists; index as i; trackBy: trackByFn"
+      class="list-item"
+      [style]="{ 'border-left': '3px solid' + list.color }"
+      cdkDrag
+    >
+      <a class="list-link" routerLink="/todo/{{ list._id }}"
+        >{{ list.name }}
+        <span class="number-of-items">{{
+          (list.items | todoDoneFilter).length
+        }}</span></a
+      >
+      <span
+        class="pointer float-right list-icon"
+        (click)="openConfirmDialog(list)"
+        [style]="{ color: list.color }"
+        >&#9003;</span
+      >
+      <span
+        class="pointer float-right list-icon"
+        (click)="openDialog(list, i)"
+        [style]="{ color: list.color }"
+        >&#9998;</span
+      >
+    </div>
+  </div>
+</div>
+<app-footer>
+  <div></div>
+  <button mat-flat-button (click)="openDialog()">
+    <span class="plus-sign">&#10133;</span>Create todo list
+  </button>
+  <div></div>
+</app-footer>

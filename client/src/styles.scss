@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "Quicksand-Bold";
+  src: url("/assets/fonts/Quicksand-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Quicksand-Regular";
+  src: url("/assets/fonts/Quicksand-Regular.ttf");
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Quicksand-Regular";
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.content-container {
+  min-height: 405px;
+  height: 405px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.float-right {
+  float: right;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.icons {
+  width: 10px;
+  color: #ffffff;
+  padding: 3px 7px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 2px;
+  text-align: center;
+}
+
+.empty {
+  background-color: #1fc600;
+  font-family: "Lucida Sans Unicode";
+}
+
+.help {
+  position: relative;
+  background-color: #fecb02;
+
+  .tooltip {
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    width: 150px;
+    color: #fecb02;
+    font-size: 12px;
+    background-color: #000000;
+    border-radius: 10px;
+    padding: 15px;
+    top: -8px;
+    right: 120%;
+  }
+
+  &:hover .tooltip {
+    visibility: visible;
+  }
+}
+
+.list {
+  height: 325px;
+  overflow-y: scroll;
+}
+
+.list-item {
+  padding: 10px 0 10px 10px;
+  text-align: left;
+
+  &:first-child {
+    margin-top: 15px;
+  }
+
+  &:last-child {
+    margin-bottom: 2rem;
+  }
+}
+
+.list-icon {
+  margin: 2px;
+  font-family: "Lucida Sans Unicode";
+  font-size: 1.2rem;
+}
+
+.custom-dialog {
+  .mdc-dialog__title {
+    text-align: center;
+    padding: 0 !important;
+    margin-bottom: 10px;
+  }
+
+  .mdc-dialog .mdc-dialog__content {
+    padding: 0px !important;
+    margin: 20px !important;
+  }
+
+  .mat-mdc-input-element {
+    font-size: 1rem;
+  }
+
+  .mat-mdc-dialog-actions {
+    justify-content: space-between !important;
+  }
+
+  .mat-mdc-dialog-container .mdc-dialog__surface {
+    border-radius: 20px !important;
+  }
+
+  .mat-mdc-button.mat-mdc-button-base {
+    border-radius: 15px;
+    padding: 15px;
+  }
+}

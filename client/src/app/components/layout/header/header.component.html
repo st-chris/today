@@ -1,0 +1,9 @@
+<div class="header-top-container">
+  <div class="title-question">what will you do</div>
+  <div class="icons-container">
+    <ng-content></ng-content>
+  </div>
+</div>
+<div class="title-container">
+<h1 class="title {{title && title.length > 10 ? 'small' : 'big'}}">{{title ? title : 'today'}}</h1>
+</div>

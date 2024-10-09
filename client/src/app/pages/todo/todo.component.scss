@@ -1,0 +1,28 @@
+.back {
+  background-color: #b084e6;
+  font-family: "Lucida Sans Unicode";
+  font-size: 0.7rem;
+  padding-top: 4px;
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.todo-input {
+  width: 100%;
+  margin-top: 15px;
+  padding: 5px;
+  border: 0;
+  border-bottom: 2px solid #b084e6;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1.2rem;
+}
+
+.list-todo {
+  height: 325px;
+}

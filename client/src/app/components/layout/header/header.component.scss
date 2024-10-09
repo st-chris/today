@@ -1,0 +1,40 @@
+.header-top-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    justify-content: space-evenly;
+  }
+  
+  .title-question {
+    align-self: end;
+    color: #fb7a02;
+    margin: 0;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+  
+  .icons-container {
+    display: flex;
+  }
+
+  .title-container {
+    height: 65px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid #ed5876;
+  }
+  
+  .title {
+    font-family: "Quicksand-Bold";
+    margin: 0;
+    text-align: center;
+  }
+
+  .small {
+    font-size: 2rem;
+  }
+
+  .big {
+    font-size: 3rem;
+  }

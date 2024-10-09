@@ -1,0 +1,41 @@
+<h1
+  mat-dialog-title
+  class="title"
+  [style]="data.color ? 'border-bottom: 2px solid ' + data.color : ''"
+>
+  {{ data.titleText }}
+</h1>
+<div mat-dialog-content>
+  <div mat-form-field>
+    <input
+      matInput
+      id="name"
+      required
+      minlength="1"
+      maxlength="14"
+      [(ngModel)]="data.name"
+      #name="ngModel"
+    />
+    <div mat-hint align="end">{{ name?.value?.length }} / 14</div>
+    <div mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+      Minimum 1 character
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button
+    [style]="data.color ? 'background-color: ' + data.color : ''"
+    mat-button
+    mat-dialog-close
+  >
+    Cancel
+  </button>
+  <button
+    [style]="data.color ? 'background-color: ' + data.color : ''"
+    mat-button
+    [mat-dialog-close]="data"
+    [disabled]="name.invalid"
+  >
+    OK
+  </button>
+</div>
